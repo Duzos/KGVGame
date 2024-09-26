@@ -15,6 +15,8 @@ namespace Games
             Register(new NumberGuess());
             Register(new RockPaperScissors());
             Register(new BlackJack());
+            Register(new TicTacToe());
+            Register(new Connect());
         }
 
         // instance
