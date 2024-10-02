@@ -11,9 +11,17 @@ namespace Games
     {
         public readonly Connect.Player[,] map;
 
-        public CGrid()
+        public CGrid(int c, int r)
         {
-            map = new Connect.Player[7, 6];
+            map = new Connect.Player[c, r];
+        }
+        public CGrid(int players) : this((int)Math.Round(players * 3.5), players * 3)
+        {
+
+        }
+        public CGrid() : this(2)
+        {
+
         }
 
         public void Clear()
@@ -38,7 +46,7 @@ namespace Games
 
         public bool Add(int c, Connect.Player plr, bool simulate)
         {
-            if (c < 0 || c > GetRows()) return false;
+            if (c < 0 || c > GetColumns() - 1) return false;
             if (IsFull()) return true;
 
             for (int i = GetRows() - 1; i > 0; i--)
@@ -78,14 +86,17 @@ namespace Games
                 for (int c = 0; c < GetColumns(); c++)
                 {
                     plr = map[c, r];
+                    if (plr == Connect.Player.EMPTY) continue;
 
                     // check horizontal
                     if (!(c >= GetColumns() - 4))
                     {
+
                         bool valid = true;
                         for (int i = 0; i < 4; i++)
                         {
                             valid = valid && (plr == map[c + i, r]);
+
                             if (!valid) break;
                         }
 
@@ -102,6 +113,44 @@ namespace Games
                         for (int i = 0; i < 4; i++)
                         {
                             valid = valid && (plr == map[c, r + i]);
+
+                            if (!valid) break;
+                        }
+
+                        if (valid)
+                        {
+                            return plr;
+                        }
+                    }
+
+                    // check diagonal
+                    if (true)
+                    {
+
+                        // up and right
+                        bool valid = true;
+                        for (int i = 0; i < 4; i++)
+                        {
+                            if (c + i > (GetColumns() - 1) || r - i < 0) valid = false;
+
+                            valid = valid && (plr == map[c + i, r - i]);
+
+                            if (!valid) break;
+                        }
+
+                        if (valid)
+                        {
+                            return plr;
+                        }
+
+                        // up and left
+                        valid = true;
+                        for (int i = 0; i < 4; i++)
+                        {
+                            if (c - i < 0 || r - i < 0) valid = false;
+
+                            valid = valid && (plr == map[c - i, r - i]);
+
                             if (!valid) break;
                         }
 
@@ -128,6 +177,11 @@ namespace Games
                 { 
                     plr = map[c, r];
                     string repr = (plr != Connect.Player.EMPTY) ? "O" : " ";
+
+                    if (c > 9)
+                    {
+                        repr = repr + " ";
+                    }
 
                     if (r == 0 && plr == Connect.Player.EMPTY)
                     {

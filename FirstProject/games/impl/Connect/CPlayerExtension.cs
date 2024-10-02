@@ -20,6 +20,10 @@ namespace Games
             {
                 case Player.RED: return ConsoleColor.Red;
                 case Player.BLUE: return ConsoleColor.Blue;
+                case Player.GREEN: return ConsoleColor.Green;
+                case Player.YELLOW: return ConsoleColor.Yellow;
+                case Player.MAGENTA: return ConsoleColor.Magenta;
+                case Player.CYAN: return ConsoleColor.Cyan;
                 default: return ConsoleColor.White;
             }
         }

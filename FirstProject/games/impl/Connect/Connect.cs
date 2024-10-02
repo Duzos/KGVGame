@@ -10,32 +10,38 @@ namespace Games
 {
     public class Connect : Game
     {
-        private readonly CGrid grid;
-        private readonly Player first;
-        private readonly Player second;
+        private CGrid grid;
+        private int players;
 
         public Connect() : base("connect")
         {
-            grid = new CGrid();
-
-            first = Player.RED;
-            second = Player.BLUE;
+            players = 2;
         }
 
         protected override void OnRestart()
         {
-            grid.Clear();
+            Console.WriteLine("How many players (2 -> 6)");
+            players = Util.ReadInteger((input) =>
+            {
+                return input > 1 || input < 6;
+            });
+
+            grid = new CGrid(players);
         }
 
         protected override bool Run()
         {
-            Turn(first);
 
-            if (CheckForWin()) return true;
+            int count = 1;
+            foreach (Player plr in Enum.GetValues(typeof(Player))) {
+                if (plr == Player.EMPTY) continue;
+                if (count > players) break;
+                count++;
 
-            Turn(second);
+                Turn(plr);
 
-            if (CheckForWin()) return true;
+                if (CheckForWin()) return true;
+            }
 
             return false;
         }
@@ -49,11 +55,14 @@ namespace Games
         }
         private void Turn(Player player)
         {
-            Console.WriteLine();
-            grid.Print();
+            Console.Write("(");
+            player.SetColor();
+            Console.Write(player);
+
+            Console.ResetColor();
+            Console.Write(") Type a column");
             Console.WriteLine();
 
-            Console.WriteLine("({0}) Type a column", player);
             int pos = QueryPosition();
             grid.Add(pos, player, false);
         }
@@ -87,7 +96,11 @@ namespace Games
         {
             EMPTY,
             RED,
-            BLUE
+            BLUE,
+            GREEN,
+            YELLOW,
+            MAGENTA,
+            CYAN
         }
     }
 }
