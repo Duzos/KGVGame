@@ -13,7 +13,7 @@ namespace Games
         }
 
 
-        public void StartLoop()
+        public virtual void StartLoop()
         {
             this.OnRestart();
 
@@ -41,6 +41,11 @@ namespace Games
         public string id()
         {
             return this.identifier;
+        }
+    
+        public virtual string Name()
+        {
+            return id();
         }
     }
 }

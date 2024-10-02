@@ -1,4 +1,5 @@
 ﻿using FirstProject;
+using FirstProject.games.form.impl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Games
             Register(new BlackJack());
             Register(new TicTacToe());
             Register(new Connect());
+            Register(new GuiTicTacToe());
         }
 
         // instance
