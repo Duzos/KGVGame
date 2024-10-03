@@ -44,10 +44,10 @@ namespace Games
             return map.GetLength(1);
         }
 
-        public bool Add(int c, Connect.Player plr, bool simulate)
+        public KeyValuePair<bool, int?> Add(int c, Connect.Player plr, bool simulate)
         {
-            if (c < 0 || c > GetColumns() - 1) return false;
-            if (IsFull()) return true;
+            if (c < 0 || c > GetColumns() - 1) return new KeyValuePair<bool, int?>(false, null);
+            if (IsFull()) return new KeyValuePair<bool, int?>(true, null);
 
             for (int i = GetRows() - 1; i > 0; i--)
             {
@@ -57,11 +57,11 @@ namespace Games
                     {
                         map[c, i] = plr;
                     }
-                    return true;
+                    return new KeyValuePair<bool, int?>(true, i);
                 }
             }
 
-            return false;
+            return new KeyValuePair<bool, int?>(false, null);
         }
 
         public bool IsFull()

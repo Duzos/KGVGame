@@ -45,7 +45,7 @@ namespace Games
         {
             return Util.ReadInteger((input) =>
             {
-                return grid.Add(input, Player.EMPTY, true);
+                return grid.Add(input, Player.EMPTY, true).Key;
             });
         }
         private void Turn(Player player)

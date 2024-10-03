@@ -17,8 +17,13 @@ namespace FirstProject
 
         static void Main(string[] args)
         {
-            Application.Run(new GameSelect());
+            Console.WriteLine("Would you like to play GUI games?");
+            bool gui = Util.ReadBoolean();
 
+            if (gui) { 
+                Application.Run(new GameSelect());
+                return;
+            }
 
             Game chosen = Util.QueryForGame();
 

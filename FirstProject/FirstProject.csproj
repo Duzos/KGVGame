@@ -55,16 +55,26 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="games\form\FormGame.cs" />
-    <Compile Include="games\form\impl\TTTButton.cs">
+    <Compile Include="games\form\impl\Connect\GuiConnect.cs" />
+    <Compile Include="games\form\impl\Connect\ConnectButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="games\form\impl\TTTForm.cs">
+    <Compile Include="games\form\impl\Connect\ConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="games\form\impl\TTTForm.Designer.cs">
+    <Compile Include="games\form\impl\Connect\ConnectForm.Designer.cs">
+      <DependentUpon>ConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="games\form\impl\TTT\TTTButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="games\form\impl\TTT\TTTForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="games\form\impl\TTT\TTTForm.Designer.cs">
       <DependentUpon>TTTForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="games\form\impl\GuiTicTacToe.cs" />
+    <Compile Include="games\form\impl\TTT\GuiTicTacToe.cs" />
     <Compile Include="games\impl\Blackjack\BlackJack.cs" />
     <Compile Include="games\impl\Blackjack\Cards\Card.cs" />
     <Compile Include="games\impl\Blackjack\Cards\Deck.cs" />
@@ -95,7 +105,10 @@
     <EmbeddedResource Include="GameSelect.resx">
       <DependentUpon>GameSelect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="games\form\impl\TTTForm.resx">
+    <EmbeddedResource Include="games\form\impl\Connect\ConnectForm.resx">
+      <DependentUpon>ConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="games\form\impl\TTT\TTTForm.resx">
       <DependentUpon>TTTForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

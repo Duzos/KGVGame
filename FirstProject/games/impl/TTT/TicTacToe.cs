@@ -30,14 +30,14 @@ namespace Games
 
         protected override bool Run()
         {
-            Turn(first);
+            foreach (Player plr in Enum.GetValues(typeof(Player)))
+            {
+                if (plr == Player.EMPTY) continue;
 
-            if (CheckForWin()) return true;
+                Turn(plr);
 
-            Turn(second);
-
-            if (CheckForWin()) return true;
-
+                if (CheckForWin()) return true;
+            }
 
             return false;
         }

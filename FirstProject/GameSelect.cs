@@ -27,7 +27,7 @@ namespace FirstProject
         private void PopulateWithGames(object sender, EventArgs e)
         {
             int count = 0;
-            foreach (Game i in GameRegister.instance().lookup.Values)
+            foreach (Game i in GameRegister.Instance().lookup.Values)
             {
                 if (!(i is FormGame)) continue;
 

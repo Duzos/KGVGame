@@ -18,13 +18,15 @@ namespace Games
             Register(new BlackJack());
             Register(new TicTacToe());
             Register(new Connect());
+
             Register(new GuiTicTacToe());
+            Register(new GuiConnect());
         }
 
         // instance
         private static GameRegister INSTANCE;
 
-        public static GameRegister instance()
+        public static GameRegister Instance()
         {
             if (INSTANCE == null) INSTANCE = new GameRegister();
 

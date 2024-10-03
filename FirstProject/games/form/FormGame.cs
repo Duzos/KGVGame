@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstProject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,14 @@ namespace Games
         
         public override void StartLoop()
         {
+            OnRestart();
+
+            if (Form.ActiveForm == null)
+            {
+                Application.Run(CreateForm());
+                return;
+            }
+
             Form.ActiveForm.Hide();
             CreateForm().Show();
         }
@@ -28,6 +37,12 @@ namespace Games
         protected override void OnRestart()
         {
             
+        }
+
+        public void ReturnToSelect()
+        {
+            Form.ActiveForm.Hide();
+            new GameSelect().Show();
         }
     }
 }

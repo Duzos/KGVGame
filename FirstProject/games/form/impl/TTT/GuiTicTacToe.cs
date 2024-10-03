@@ -27,6 +27,9 @@ namespace FirstProject.games.form.impl
         protected override Form CreateForm()
         {
             parent = new TTTForm(this);
+
+            parent.OnTurn(current);
+            
             return parent;
         }
 
@@ -59,6 +62,8 @@ namespace FirstProject.games.form.impl
         {
             if (current == Player.X) current = Player.O;
             else current = Player.X;
+
+            parent.OnTurn(current);
         }
         private Player Current()
         {
@@ -90,7 +95,7 @@ namespace FirstProject.games.form.impl
         }
         private void OnWin()
         {
-            parent.Text = "WINN!!!";
+            parent.OnWin(grid.GetWinner(), grid.IsFull());
         }
     }
 }
