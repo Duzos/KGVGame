@@ -44,7 +44,7 @@ namespace FirstProject.games.form.impl
             {
                 for (int c = 0; c < game.grid.GetColumns(); c++)
                 {
-                    ConnectButton but = CreateButton(c, r);
+                    ConnectButton but = CreateButton(c, r, 1 - ((game.PlayerCount() - 1) / 6f));
 
                     map[c, r] = but;
                     Controls.Add(but);
@@ -52,13 +52,14 @@ namespace FirstProject.games.form.impl
             }
         }
 
-        private ConnectButton CreateButton(int c, int r)
+        private ConnectButton CreateButton(int c, int r, float scale)
         {
+            int size = (int)(153.6f * scale);
             return new ConnectButton(game, c, r)
             {
-                Size = new Size(128, 128),
-                Location = new Point(128 * (c), 128 * (r)),
-                Font = new Font("Microsoft Sans Serif", 100)
+                Size = new Size(size, size),
+                Location = new Point(size * (c), size * (r)),
+                Font = new Font("Microsoft Sans Serif", 120 * scale)
             };
         }
 

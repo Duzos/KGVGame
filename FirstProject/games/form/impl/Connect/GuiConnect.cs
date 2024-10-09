@@ -1,4 +1,5 @@
 ﻿using Games;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using static Games.Connect;
@@ -97,12 +98,17 @@ namespace FirstProject.games.form.impl
         {
             current = current.Next();
 
-            if ((int)current > players)
+            if ((int)current > players || current == Player.EMPTY) 
             {
                 current = Player.RED;
             }
 
             parent.OnTurn(current);
+        }
+        
+        public int PlayerCount()
+        {
+            return players;
         }
     }
 }
