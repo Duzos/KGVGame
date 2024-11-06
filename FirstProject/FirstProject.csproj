@@ -33,16 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameSelect.cs">
@@ -64,6 +68,19 @@
     </Compile>
     <Compile Include="games\form\impl\Connect\ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="games\form\impl\Snake\Direction.cs" />
+    <Compile Include="games\form\impl\Snake\SnakeButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="games\form\impl\Snake\GridValue.cs" />
+    <Compile Include="games\form\impl\Snake\Position.cs" />
+    <Compile Include="games\form\impl\Snake\Snake.cs" />
+    <Compile Include="games\form\impl\Snake\SnakeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="games\form\impl\Snake\SnakeForm.Designer.cs">
+      <DependentUpon>SnakeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="games\form\impl\TTT\TTTButton.cs">
       <SubType>Component</SubType>
