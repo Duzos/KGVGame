@@ -1,5 +1,6 @@
 ﻿using FirstProject;
 using FirstProject.games.form.impl;
+using FirstProject.games.form.impl.Snake;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Games
 
             Register(new GuiTicTacToe());
             Register(new GuiConnect());
+            Register(new SnakeBuilder());
         }
 
         // instance

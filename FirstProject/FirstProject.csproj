@@ -69,6 +69,7 @@
     <Compile Include="games\form\impl\Connect\ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="games\form\impl\Snake\SnakeBuilder.cs" />
     <Compile Include="games\form\impl\Snake\Direction.cs" />
     <Compile Include="games\form\impl\Snake\SnakeButton.cs">
       <SubType>Component</SubType>
@@ -124,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="games\form\impl\Connect\ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="games\form\impl\Snake\SnakeForm.resx">
+      <DependentUpon>SnakeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="games\form\impl\TTT\TTTForm.resx">
       <DependentUpon>TTTForm.cs</DependentUpon>
